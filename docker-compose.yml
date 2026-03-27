@@ -1,0 +1,26 @@
+version: '3.3'
+services:
+  # Dịch vụ Web
+  web-app:
+    image: ${DOCKER_IMAGE} # Biến này sẽ do Jenkins tự điền khi chạy
+    ports:
+      - "80:80"
+    depends_on:
+      - db-server
+    restart: always
+
+  # Dịch vụ Database (Mô phỏng AWS RDS trong sơ đồ)
+  db-server:
+    image: mysql:8.0
+    container_name: mysql_db
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword 
+      MYSQL_DATABASE: ban_may_tinh
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    restart: always
+
+volumes:
+  mysql_data:
