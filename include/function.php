@@ -26,4 +26,10 @@ function fileIndex($index,$value=''){
 	$data = isset($_FILES[$index])?$_FILES[$index]:$value;
 	return $data;
 }
+<?php
+function loadClass($c) {
+    $file = ROOT . "/classes/" . $c . ".php";
+    if (file_exists($file)) {
+        include_once $file;
+    }
 ?>
