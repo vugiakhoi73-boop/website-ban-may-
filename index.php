@@ -6,8 +6,8 @@
 <html lang="en">
 <?php
 	include "config/config.php";
-	include ROOT . "/include/function.php";
-	spl_autoload_register("loadClass");
+	include "include/function.php";
+spl_autoload_register("loadClass");
 ?>
 	<head>
 		<meta charset="utf-8">
