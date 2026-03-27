@@ -1,35 +1,16 @@
 <?php
-function loadClass($c)
-{
-	include ROOT."/classes/".$c.".class.php";
-}
-
-function getIndex($index, $value='')
-{
-	$data = isset($_GET[$index])?$_GET[$index]:$value;
-	return $data;
-}
-
-function postIndex($index, $value='')
-{
-	$data = isset($_POST[$index])?$_POST[$index]:$value;
-	return $data;
-}
-
-function requestIndex($index, $value='')
-{
-	$data = isset($_REQUEST[$index])?$_REQUEST[$index]:$value;
-	return $data;
-}
-
-function fileIndex($index,$value=''){
-	$data = isset($_FILES[$index])?$_FILES[$index]:$value;
-	return $data;
-}
-<?php
 function loadClass($c) {
-    $file = ROOT . "/classes/" . $c . ".php";
+    // Sử dụng đường dẫn tương đối để an toàn hơn
+    $file = "classes/" . $c . ".php";
     if (file_exists($file)) {
         include_once $file;
+    } else {
+        // Dự phòng nếu dùng hằng số ROOT
+        $file_alt = __DIR__ . "/../classes/" . $c . ".php";
+        if (file_exists($file_alt)) {
+            include_once $file_alt;
+        }
     }
+}
 ?>
+
