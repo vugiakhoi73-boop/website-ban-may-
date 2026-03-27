@@ -6,7 +6,7 @@
 <html lang="en">
 <?php
 	include "config/config.php";
-	include ROOT."/include/function.php";
+	include ROOT . "/include/function.php";
 	spl_autoload_register("loadClass");
 ?>
 	<head>
