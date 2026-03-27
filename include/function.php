@@ -22,7 +22,7 @@ function getIndex() {
 }
 
 // Hàm lấy tham số hành động (Nếu web bạn có dùng)
-function getP(($n) {
+function getP($n) {
     $r = "";
     if (isset($_GET[$n])) {
         $r = $_GET[$n];
